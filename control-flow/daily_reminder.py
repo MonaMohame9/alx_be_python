@@ -1,5 +1,5 @@
 # daily_reminder.py
-# dai1211211ly_reminder.py
+
 # طلب إدخال المهمة من المستخدم
 task = input("Enter your task for today: ")
 
@@ -17,7 +17,7 @@ match priority:
         reminder = f"Medium priority task: {task}"
     case "low":
         reminder = f"Low priority task: {task}"
-    case _:
+    case _:  # أي إدخال غير معروف
         reminder = f"Task: {task} (unknown priority)"
 
 # تعديل التذكير إذا كانت المهمة محددة بالوقت
