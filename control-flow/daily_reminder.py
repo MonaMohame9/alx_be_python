@@ -1,29 +1,34 @@
 # daily_reminder.py
 
-# طلب إدخال المهمة من المستخدم
-task = input("Enter your task for today: ")
+# Ask for the user's task
+task = input("Enter your task: ")
 
-# طلب أولوية المهمة
-priority = input("Enter the priority of the task (high/medium/low): ").lower()
+# Loop until the user enters a valid priority
+while True:
+    priority = input("Priority (high/medium/low): ").lower()
+    if priority in ["high", "medium", "low"]:
+        break
+    print("Invalid priority. Please enter high, medium, or low.")
 
-# السؤال إذا كانت المهمة محددة بالوقت
-time_bound = input("Is this task time-bound? (yes/no): ").lower()
+# Ask if the task is time-bound
+time_bound = input("Is it time-bound? (yes/no): ").lower()
 
-# استخدام Match Case لمعالجة المهمة حسب الأولوية
+# Process the task using match-case
 match priority:
     case "high":
-        reminder = f"High priority task: {task}"
+        message = f"'{task}' is a high priority task"
     case "medium":
-        reminder = f"Medium priority task: {task}"
+        message = f"'{task}' is a medium priority task"
     case "low":
-        reminder = f"Low priority task: {task}"
-    case _:  # أي إدخال غير معروف
-        reminder = f"Task: {task} (unknown priority)"
+        message = f"'{task}' is a low priority task"
+    case _:
+        message = f"'{task}' has an undefined priority"  # fallback
 
-# تعديل التذكير إذا كانت المهمة محددة بالوقت
+# Check if the task is time-bound
 if time_bound == "yes":
-    reminder += " that requires immediate attention today!"
+    message += " that requires immediate attention today!"
+else:
+    message += ". Consider completing it when you have free time."
 
-# طباعة التذكير النهائي
-print("\nYour reminder:")
-print(reminder)
+# Print the final reminder
+print("\nReminder:", message)
