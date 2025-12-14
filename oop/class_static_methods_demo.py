@@ -1,0 +1,17 @@
+# class_static_methods_demo.py
+# Demonstration of class methods and static methods in Python
+
+class Calculator:
+    # Class attribute
+    calculation_type = "Arithmetic Operations"
+
+    @staticmethod
+    def add(a, b):
+        """Static method: returns the sum of two numbers"""
+        return a + b
+
+    @classmethod
+    def multiply(cls, a, b):
+        """Class method: prints class attribute and returns the product"""
+        print(f"Calculation type: {cls.calculation_type}")
+        return a * b
